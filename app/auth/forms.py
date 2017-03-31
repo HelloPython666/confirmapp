@@ -24,7 +24,7 @@ class RegistrationForm(Form):
     password2 = PasswordField('Confirm password', validators=[DataRequired()])
     submit = SubmitField('Register')
 
-#  检测确保填写的值在数据库中是否存在
+#  检测数据库中是否存在,filter过滤
 
     def validate_email(self, field):
         if User.query.filter_by(email=field.data).first():
